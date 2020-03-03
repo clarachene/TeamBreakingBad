@@ -65,3 +65,7 @@ app.listen(port, (err) => {
   //On utilise l'utilitaire OS pour récupérer le nom de notre raspberry.
   console.log('Le serveur écoute sur le port '+port+'\nRendez vous sur http://'+os.hostname()+'.local:'+port);
 })
+
+process.on('SIGINT', () => {
+  led.unexport();
+});
